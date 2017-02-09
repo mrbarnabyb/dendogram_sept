@@ -26,7 +26,7 @@
 }
 
 </style>
-<svg width="960" height="900"></svg>
+<svg width="1500" height="1500"></svg>
 <script src="//d3js.org/d3.v4.min.js"></script>
 <script>
 
@@ -38,8 +38,10 @@ var svg = d3.select("svg"),
 var stratify = d3.stratify()
     .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
 
+var usefulPadding = 200;
+
 var cluster = d3.cluster()
-    .size([360, width / 2 - 120]);
+    .size([360, width / 2 - usefulPadding]);
 
 d3.csv("flare-porridge.csv", function(error, data) {
   if (error) throw error;
